@@ -1,0 +1,55 @@
+
+-unless @message.errors.empty?
+	= %{Your changes can't be saved because #{controller_name} has the following errors}
+	- @message.errors.full_messages.each do |error|
+		%li= error
+%div{:class => "col-md-6 col-md-offset-3"}
+	%div{:class => "panel panel-info"}
+		.panel-heading
+			%h4 Editing message
+		.panel-body
+			%div{:class => "form-horizontal"}
+				Words:
+				%span{:id =>"counter"}
+
+				= form_for @message do |f|
+					%div{:class => "form-group"}
+						/ = f.label :body
+						= f.text_area :body, :size => "100x10"
+					%div{:class => "form-group"}
+					= f.label :version
+					= f.select :version, Message::VERSIONS
+					%div{:class => "form-group"}
+					= f.submit "Save", :class => "btn btn-success"
+
+
+= link_to 'Back', messages_path
+
+:javascript
+	
+	 
+	function pluralize_words(num) {
+		if(num == 1) {
+	  		return num + " word";
+		} else {
+	  	return num + " words";
+		}
+	}
+
+	$("#message_body").keyup(function() {
+		var regex = /\s+/gi;
+		var chars = $("#message_body").val().trim().replace(regex, ' ').split(' ').length;
+		var max = $("#message_version :selected").text().split(" ")[0];
+		console.log(max);
+		var left = max - chars; 
+		if(left >= 0) {
+	  		$("#counter").text(pluralize_words(left) + " left");
+		} else {
+	  		left = left * (-1)
+	  		$("#counter").text(pluralize_words(left) + " too long");
+		}
+	});
+
+= link_to 'Show', @message
+\|
+= link_to 'Back', messages_path

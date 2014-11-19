@@ -1,0 +1,13 @@
+%p#notice= notice
+= link_to "CSV", message_path(format: "csv")
+
+%p
+  %b Body:
+  = @message.body
+%p
+  %b Version:
+  = @message.version
+
+= link_to 'Edit', edit_message_path(@message)
+\|
+= link_to 'Back', messages_path

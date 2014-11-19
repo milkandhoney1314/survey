@@ -1,0 +1,24 @@
+/ -unless @message.errors.empty?
+/   = %{Your changes can't be saved because #{controller_name} has the following errors}
+/   - @message.errors.full_messages.each do |error|
+/     %li= error
+
+/ = form_for @message do |f|
+/   %span{:class => "form-group"}
+/     = f.label :body
+/     = f.text_area :body, :size => "100x10"
+/   %span{:class => "form-group"}
+/     = f.label :version
+/     = f.select :version, options_for_select(["15 words", "43 words", "139 words"])
+/   %span{:class => "form-group"}
+/     = f.submit "Save", :class => "btn btn-success"
+
+/ Words:
+/ %span{:class =>"counter"}
+/   0
+    
+/ :javascript
+/ console.log("fjdsk");
+/ / $(document).ready(function() {
+/ /   $('#body').change("#counter");
+/ / }
