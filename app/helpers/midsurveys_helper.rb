@@ -1,0 +1,2 @@
+module MidsurveysHelper
+end

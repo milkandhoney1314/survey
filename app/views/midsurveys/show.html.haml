@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @midsurvey.name
+%p
+  %b Review:
+  = @midsurvey.review
+
+= link_to 'Edit', edit_midsurvey_path(@midsurvey)
+\|
+= link_to 'Back', midsurveys_path

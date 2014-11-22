@@ -11,11 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118205618) do
+ActiveRecord::Schema.define(version: 20141122110919) do
+
+  create_table "largesurveys", force: true do |t|
+    t.string   "name"
+    t.string   "review"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "messages", force: true do |t|
     t.text     "body"
     t.string   "version"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "midsurveys", force: true do |t|
+    t.string   "name"
+    t.string   "review"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "smallsurveys", force: true do |t|
+    t.string   "name"
+    t.string   "review"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

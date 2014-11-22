@@ -1,0 +1,26 @@
+%h3 All the surveys between 135-145 words 
+%br
+Download:
+= link_to "CSV", largesurveys_path(format: "csv")
+%br
+%br
+
+%table{:class => "table table-hover"}
+  %tr
+    %th Name
+    %th Review
+    %th
+    %th
+    %th
+
+  - @largesurveys.each do |largesurvey|
+    %tr
+      %td= largesurvey.name
+      %td= largesurvey.review
+      %td= link_to 'Show', largesurvey
+      %td= link_to 'Edit', edit_largesurvey_path(largesurvey)
+      %td= link_to 'Destroy', largesurvey, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Largesurvey', new_largesurvey_path

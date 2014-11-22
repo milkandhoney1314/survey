@@ -1,0 +1,26 @@
+%h3 All the surveys between 40-50 words 
+%br
+Download:
+= link_to "CSV", midsurveys_path(format: "csv")
+%br
+%br
+
+%table{:class => "table table-hover"}
+  %tr
+    %th Name
+    %th Review
+    %th
+    %th
+    %th
+
+  - @midsurveys.each do |midsurvey|
+    %tr
+      %td= midsurvey.name
+      %td= midsurvey.review
+      %td= link_to 'Show', midsurvey
+      %td= link_to 'Edit', edit_midsurvey_path(midsurvey)
+      %td= link_to 'Destroy', midsurvey, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Midsurvey', new_midsurvey_path

@@ -1,0 +1,16 @@
+= form_for @largesurvey do |f|
+  - if @largesurvey.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@largesurvey.errors.count, "error")} prohibited this largesurvey from being saved:"
+      %ul
+        - @largesurvey.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :review
+    = f.text_field :review
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,26 @@
+%h3 All the surveys between 10-20 words 
+%br
+Download:
+= link_to "CSV", smallsurveys_path(format: "csv")
+%br
+%br
+
+%table{:class => "table table-hover"}
+  %tr
+    %th Name
+    %th Review
+    %th
+    %th
+    %th
+
+  - @smallsurveys.each do |smallsurvey|
+    %tr
+      %td= smallsurvey.name
+      %td= smallsurvey.review
+      %td= link_to 'Show', smallsurvey
+      %td= link_to 'Edit', edit_smallsurvey_path(smallsurvey)
+      %td= link_to 'Destroy', smallsurvey, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Smallsurvey', new_smallsurvey_path

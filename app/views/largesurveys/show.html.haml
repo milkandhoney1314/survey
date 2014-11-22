@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @largesurvey.name
+%p
+  %b Review:
+  = @largesurvey.review
+
+= link_to 'Edit', edit_largesurvey_path(@largesurvey)
+\|
+= link_to 'Back', largesurveys_path

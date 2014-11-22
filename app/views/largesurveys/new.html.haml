@@ -1,0 +1,86 @@
+-unless @largesurvey.errors.empty?
+	= %{Your changes can't be saved because #{controller_name} has the following errors}
+	- @largesurvey.errors.full_messages.each do |error|
+		%li= error
+%div{:class=>'container header_div'}
+	%div{:class => "container title_div"}
+		%h4 Colombia Business School
+		%br
+		%div{:class => " center_div"}
+			.text-center
+				.small
+				%strong SURVEY1 - "PRODUCT / SERVICE EXPERIENCE"
+				
+			%p
+			In this research, we are interested in consumers' experiences with products and services.
+			%p
+			In the space below, please write a 
+			%strong review of a restaurant experience 
+			that took place 
+			%strong at least one month ago but within the past year.
+			%p
+			Your review must contain 
+			%ins between 135 to 145 words. 
+			A word counter (below the text box) will indicate how many words you have written. You will not be able to submit your review unless it contains between 
+			%ins 135-145 words.
+
+%br
+%br
+%div{:class=>'col-md-6 col-md-offset-3'}
+	= form_for @largesurvey do |f|
+		= f.label :name, "Name of Restaurant"
+		%br
+		%br
+
+		= f.text_field :name, :size => "90x10"
+		%br
+		%br	
+		%br
+
+		= f.label :reviw, "Review of Restaurant"
+		%br
+		%br
+
+		= f.text_area :review, :size => "90x10"
+		%br
+		%div{:class=>'pull-right'}
+			= f.submit "Save"
+%br
+%br		
+%div{:class=>'col-md-6 col-md-offset-3'}
+	.text-center
+		%h5
+		%strong Words Counter:
+	%br
+	%br
+	%div{:id =>"counter_div"}
+		%span{:id =>"counter"}
+
+
+
+:javascript
+	
+	 
+	function pluralize_words(num) {
+		if(num == 1) {
+	  		return num + " word";
+		} else {
+	  	return num + " words";
+		}
+	}
+
+	$("#largesurvey_review").keyup(function() {
+		var regex = /\s+/gi;
+		var chars = $("#largesurvey_review").val().trim().replace(regex, ' ').split(' ').length;
+		var max = 145;
+		var min = 135;
+		var left = max - chars; 
+		
+		if(left >= 0) {
+	  		$("#counter").text(" you have " + pluralize_words(left) + " left");
+		} else {
+	  		left = chars-max
+	  		$("#counter").text(pluralize_words(left) + " too long");
+		}
+	});
+
