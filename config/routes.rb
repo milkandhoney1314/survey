@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'finalpage#start'
+
   resources :largesurveys
 
   resources :midsurveys
@@ -7,10 +9,6 @@ Rails.application.routes.draw do
 
   resources :smallsurveys
 
-  root 'messages#index'
-  # get "surveys/small" => "surveys#small", as: :small
-  # get "surveys/mid" => "surveys#small", as: :mid
-  # get "surveys/large" => "surveys#small", as: :large
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
