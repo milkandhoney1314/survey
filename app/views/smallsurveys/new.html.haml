@@ -9,7 +9,7 @@
 			%div{:class => " center_text_div"}
 				.text-center
 					.small
-					%strong SURVEY1 - "PRODUCT / SERVICE EXPERIENCE"
+					%strong SURVEY 1 - "PRODUCT / SERVICE EXPERIENCES"
 					
 				%p
 				In this research, we are interested in consumers' experiences with products and services.
@@ -28,7 +28,7 @@
 %br
 %div{:class=>'col-md-6 col-md-offset-3'}
 	= form_for @smallsurvey do |f|
-		= f.label :name, "Name of Restaurant"
+		= f.label :name, "Name of Restaurant:"
 		%br
 		%br
 
@@ -37,7 +37,7 @@
 		%br	
 		%br
 
-		= f.label :reviw, "Review of Restaurant"
+		= f.label :reviw, "Review of Restaurant:"
 		%br
 		%br
 
@@ -50,7 +50,7 @@
 %div{:class=>'col-md-6 col-md-offset-3'}
 	.text-center
 		%h5
-		%strong Words Counter:
+		%strong Word Counter:
 	%div{:id =>"counter_div"}
 		%span{:id =>"counter"}
 
